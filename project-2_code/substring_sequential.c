@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
     
     partialSum = 0;
     
-    pthread_join(thread0, NULL);
+    pthread_join(t0, NULL);
     partialSum += d0.parCount;
     pthread_join(t1, NULL);
     partialSum += d1.parCount;
