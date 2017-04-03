@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     int count;
     
     pthread_t t0, t1, t2, t3;
-    thdata d0,d1, d2,d3;
+    threadData d0,d1, d2,d3;
     int partialSum;
     
     d0.threadNum = 0;
