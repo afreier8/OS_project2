@@ -4,6 +4,7 @@
   There are num_threads threads. The value of "num_threads" is input by the student.
 */
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,7 +13,8 @@
 #include <sys/param.h>
 #include <sched.h>
 
-#define K 200 // genreate a data node for K times in each thread
+// generate K number of times
+#define K 200
 
 struct Node
 {
@@ -105,10 +107,12 @@ int main(int argc, char* argv[])
     struct Node  *tmp,*next;
     struct timeval starttime, endtime;
 
-
-    num_threads = atoi(argv[1]); //read num_threads from user
+    //read num_threads from user
+    num_threads = atoi(argv[1]);
     pthread_t producer[num_threads];
-    NUM_PROCS = sysconf(_SC_NPROCESSORS_CONF);//get number of CPU
+    
+    //get number of CPU
+    NUM_PROCS = sysconf(_SC_NPROCESSORS_CONF);
     if( NUM_PROCS > 0)
     {
         cpu_array = (int *)malloc(NUM_PROCS*sizeof(int));
