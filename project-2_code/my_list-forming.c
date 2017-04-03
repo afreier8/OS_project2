@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
     //read num_threads from user
     num_threads = atoi(argv[1]);
     pthread_t producer[num_threads];
-    thread_data datas[num_threads];
+    threadData datas[num_threads];
     
     //get number of CPU
     NUM_PROCS = sysconf(_SC_NPROCESSORS_CONF);
