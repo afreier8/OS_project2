@@ -25,21 +25,25 @@ typedef struct strThreadData{
     int par_count;
 } thdata;
 
-void Producer(FILE *fp){
+void Producer(FILE *fp)
+{
     
     char s1;
     
     s1 = fgetc(fp);
-    while(1){
+    while(1)
+    {
         pthread_mutex_lock(&mutex);
         buffer[i] = s1;
-        p = (i+1)%BUFFER_SIZE;
+        i = (i+1)%BUFFER_SIZE;
         
-        if((i-1)%BUFFER_SIZE == j){
-            pthread_cond_signal(&empty);
+        if((i-1)%BUFFER_SIZE == j)
+        {
             //   signal empty
+            pthread_cond_signal(&empty);
         }
-        if(i == j){
+        if(i == j)
+        {
             //		producer sleep
             pthread_cond_wait(&full, &mutex);
             //		producer awaken
@@ -77,8 +81,8 @@ void Consumer(void *ptr)
 
         if(i == (j-1)%BUFFER_SIZE)
         {
+            // signal full
             pthread_cond_signal(&full);
-            //		printf("signal full\n");
         }
         pthread_mutex_unlock(&mutex);
     }
