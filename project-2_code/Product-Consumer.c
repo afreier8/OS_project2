@@ -1,12 +1,4 @@
-//
-//  Product-Consumer.c
-//  
-//
-//  Created by April Freier on 4/2/17.
-//
-//
 
-//#include "Product-Consumer.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
