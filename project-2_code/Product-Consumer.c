@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     j = 0;
     
     // open messages.txt
-    if((fp=fopen("messages.txt", "r"))==NULL)
+    if((fp=fopen("strings.txt", "r"))==NULL)
     {
         printf("ERROR: within string.txt!\n");
         return -1;
